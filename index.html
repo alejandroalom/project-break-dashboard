@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Dashboard Personal</h1>
+
+    <!--la musica-->
+    <section class="card">
+      <h2>Ambiente Sonoro</h2>
+      <audio id="citySound" autoplay loop>
+        <source src="assets/city-sound.mp3" type="audio/mpeg" />
+        Tu navegador no soporta el audio.
+      </audio>
+      <button id="toggleSound">🔊</button>
+    </section>
+
+    <!--reloj-->
+    <section class="card reloj">
+      <div id="clock">00:00:00</div>
+      <div id="date">00/00/0000</div>
+    </section>
+
+    <!--claves-->
+    <section class="card password">
+      <h2>Generador de Claves</h2>
+      <div class="formulario">
+        <input type="number" id="length" placeholder="Longitud" min="4" max="32" />
+        <button id="generar">Generar Clave</button>
+      </div>
+      <p id="password" class="clave-generada">Aquí aparecerá tu clave</p>
+    </section>
+
+    <!--enlaces-->
+    <section class="card links">
+      <h2>Mis Enlaces Ú-tiles</h2>
+      <div class="formulario">
+        <input type="text" id="titulo" placeholder="Nombre del enlace" />
+        <input type="text" id="url" placeholder="URL del enlace" />
+        <button id="agregar">Añadir Link</button>
+      </div>
+      <div id="lista-links" class="lista"></div>
+    </section>
+
+    <!--tiempo-->
+    <section class="card">
+      <h2>Tiempo Actual</h2>
+      <div id="weather-info">Cargando clima...</div>
+    </section>
+
+    <!--botones navegar-->
+    <section class="card menu">
+      <h2>Ir a páginas individuales</h2>
+      <div class="formulario">
+        <a class="menu-btn" href="reloj.html">
+          <img src="assets/reloj.png" alt="reloj" />
+        </a>
+        <a class="menu-btn" href="password.html">
+          <img src="assets/candado.png" alt="password" />
+        </a>
+        <a class="menu-btn" href="links.html">
+          <img src="assets/enlace.png" alt="links" />
+        </a>
+        <a class="menu-btn" href="weather.html">
+          <img src="assets/nube.png" alt="weather" />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!--scripts-->
+  <script src="./js/reloj.js"></script>
+  <script src="./js/password.js"></script>
+  <script src="./js/links.js"></script>
+  <script src="./js/background.js"></script>
+  <script src="./js/weather.js"></script>
+
+  <!--script sonido-->
+  <script>
+    const audio = document.getElementById('citySound');
+    const toggleBtn = document.getElementById('toggleSound');
+
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        toggleBtn.textContent = "🔊";
+      } else {
+        audio.pause();
+        toggleBtn.textContent = "🔇";
+      }
+    });
+  </script>
+
+  <!--mostrar clave en landpage-->
+  <script>
+    document.getElementById("generar").addEventListener("click", () => {
+      const length = document.getElementById("length").value;
+      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+      let password = "";
+      for (let i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("password").textContent = password;
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

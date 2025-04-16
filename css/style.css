@@ -1,0 +1,336 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/*base*/
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  transition: background-image 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+/*contenedor general estilo dashboard*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+/*tarjetas fondo trans*/
+.card {
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/*titulos*/
+.card h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+}
+
+/*reloj*/
+#clock {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+#date {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/*formulario comun*/
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.formulario input,
+.formulario button {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.formulario input::placeholder {
+  color: #ccc;
+}
+
+/*boton general*/
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/*password generado*/
+#password {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/*lista links*/
+.lista .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.lista .item a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.eliminar {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.3rem 0.5rem;
+  color: white;
+}
+
+/*menu navegacion*/
+.menu {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu .menu-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.menu .menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/*iconos botones navegacion y volver*/
+.menu-btn img,
+.volver img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.menu-btn img:hover,
+.volver img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2) invert(1);
+}
+
+/*boton volver*/
+.volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.volver:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/*responsive movil*/
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .formulario input,
+  .formulario button {
+    flex: 100%;
+  }
+
+  #clock {
+    font-size: 2.5rem;
+  }
+
+  #date {
+    font-size: 1.2rem;
+  }
+
+  .menu .menu-btn {
+    flex: 100%;
+  }
+}
+
+/*estilos clima*/
+.weather-container {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.weather-container img {
+  width: 64px;
+  height: 64px;
+  margin: 0.5rem 0;
+}
+
+/*clima*/
+.weather-container {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.weather-container img {
+  width: 64px;
+  height: 64px;
+  margin: 0.5rem 0;
+}
+
+#hourly-forecast h3 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.forecast-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.forecast-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 80px;
+}
+
+.forecast-item img {
+  width: 48px;
+  height: 48px;
+}
+
+/*contenedor prevision de hora*/
+.forecast-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 10px 0;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+/*estilo cada elemento de prevision*/
+.forecast-container .hora {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 100px; /*tamaño cada hora*/
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.forecast-container .hora img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-container .hora:hover {
+  transform: scale(1.05);
+}
+
+.forecast-container .hora p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.forecast-container .hora strong {
+  font-size: 1.2rem;
+}
+
+
+
