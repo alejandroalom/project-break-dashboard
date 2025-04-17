@@ -19,8 +19,7 @@ function updateClock() {
   if (clockEl) clockEl.textContent = `${hours}:${minutes}:${seconds}`;
   if (dateEl) dateEl.textContent = `${day}/${month}/${year}`;
 
-  //solo mostramos mensaje si existe el elemento en la página
-  const messageEl = document.getElementById("message");
+  const messageEl = document.getElementById("mensaje-hora") || document.getElementById("message");
   if (messageEl) {
     const totalMinutes = now.getHours() * 60 + now.getMinutes();
     let mensaje = "";
@@ -45,6 +44,6 @@ function updateClock() {
   }
 }
 
-//ejecutar cada segundo
 setInterval(updateClock, 1000);
-updateClock(); //llamada inicial
+updateClock();
+

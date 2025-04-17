@@ -4,7 +4,7 @@ const urlInput = document.getElementById("url");
 const agregarBtn = document.getElementById("agregar");
 const lista = document.getElementById("lista-links");
 
-//cargar los links al cargar la página
+//cargar los links al cargar la pagina
 document.addEventListener("DOMContentLoaded", mostrarLinks);
 
 //añadir link
